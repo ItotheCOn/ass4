@@ -1,0 +1,31 @@
+#include"stdio.h"
+#include"string.h"
+#include"stdlib.h"
+int main(){
+     FILE *ptr;
+     char store[20]={0};
+     char data[20]={0};
+     printf("Enter the data: ");
+     scanf("%s",data);
+     ptr=fopen("C:\\c and c++\\w.txt","r");
+     if(ptr==NULL){
+         printf("Error");
+         exit (5);
+     }
+     else{
+         int found=0;
+         while( fscanf(ptr,"%s",store)!=EOF){
+             if(strcmp(store,data)==0){
+                 found++;
+             }
+         }
+         fclose(ptr);
+         if(found!=0){
+             printf("Found the data %d times",found);
+         }else {
+             printf("No data");
+         }
+
+     }
+    return 0;
+}
